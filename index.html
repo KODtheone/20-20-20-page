@@ -1,18 +1,18 @@
 <html lang="baike">
 	<head>
-		<title>20提醒v3,自动刷新</title>
+		<title>20-20-20 rule</title>
 	</head>
 	<body id = 'body'>
 		<audio src="就是现在20s.mp3" id="audio_0" preload="auto"></audio>
 		<audio src="就是现在40s.mp3" id="audio_end" preload="auto"></audio>
 		<div class="main">
-			<h1 style="margin:0;color:#66ccff; font-size: 40pt">20-20-20 作息时间定时器</h1>
-			<h1 id='timer0' style="margin:0;font-size: 80pt;color:#66ffcc">工作计时</h1>
+			<h1 style="margin:0;color:#66ccff; font-size: 40pt">20-20-20 rule</h1>
+			<h1 id='timer0' style="margin:0;font-size: 80pt;color:#66ffcc">working timer</h1>
 			<!-- 'timer0' 上面的计时器 -->
 			<button id="btn1" onclick="pause()">Pause & restart</button>
-			<button id='rest' onclick="rest()">开始休息10min</button>
-			<h1 id='timer1' style="color:#aa66cc; font-size: 50pt">超时计时器</h1>
-			<button id='pop' onclick="pop()">测试弹窗</button>
+			<button id='rest' onclick="rest()">rest for 10 min</button>
+			<h1 id='timer1' style="color:#aa66cc; font-size: 50pt">after timer</h1>
+			<button id='pop' onclick="pop()">test pop</button>
 		</div>
 		<script>
 			var r = Math.floor(Math.random() * 256)
@@ -67,7 +67,7 @@
 			rest = function () {
 				clearInterval(timer0);
 				clearInterval(timer1);
-				document.getElementById("timer1").innerHTML = '休息'
+				document.getElementById("timer1").innerHTML = 'rest'
 				t = 10 * 60
 				timer0 = setInterval(";t--;main(t)", 1000);	
 				flagP = 0
@@ -81,12 +81,12 @@
 			pause = function () {
 				if (flagP % 2 == 0) {
 					clearInterval(timer0);
-					document.getElementById("timer1").innerHTML = '暂停'
+					document.getElementById("timer1").innerHTML = 'pause'
 				}
 				else {
 					clearInterval(timer0)	//更加稳妥,防止bug
 					timer0 = setInterval(";t--;main(t)", 1000);
-					document.getElementById("timer1").innerHTML = '超时计时器'
+					document.getElementById("timer1").innerHTML = 'after timer'
 				}
 				flagP += 1
 			}
